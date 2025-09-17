@@ -1,0 +1,38 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Google CloudのAI/MLを使ったコードレビュー
+      - name: Code Review
+        uses: google-github-actions/code-review@v0
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+
+
+
+      - name: Code Review
+        uses: google-github-actions/code-review@v0
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+          # レビューの詳細度を設定
+          review_level: detailed
+          # 無視するファイルパターン
+          ignore_patterns: |
+            **/*.md
+            **/*.txt
+          # 特定の言語に対する追加チェック
+          language_settings: |
+            python:
+              type_checking: strict
+            javascript:
+              style_guide: google

@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from signin.usecase.signin import SigninUseCase
-from signin.domain.signin import SigninModel
+from backend.app.signin.domain.signin_model import SigninModel
 
 signin_router = APIRouter()
 @signin_router.post("/api/auth/signin")

@@ -1,0 +1,16 @@
+[project]
+name = "kz-bz-english2"
+version = "0.1.0"
+description = "Kazu and Bevz English Web site"
+readme = "README.md"
+requires-python = ">=3.13.7"
+dependencies = [
+    "pydantic>=2.11.7",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17.1",
+    "pytest>=8.4.2",
+    "ruff>=0.13.0",
+]
